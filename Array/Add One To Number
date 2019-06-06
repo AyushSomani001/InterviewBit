@@ -70,11 +70,9 @@ vector<int> plusOne(vector<int> &Number) {
 };
 
 int main(){
-	int input;
-  	vector<int> N;
-        cin >> input;
-    N.push_back(input);
-  plusOne(N);
+	//Pre-defined Input for the Vector in a block of array
+  	vector<int> N {1,2,7,9,9};
+  	plusOne(N);
   return 0;
 }
 */

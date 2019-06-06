@@ -1,0 +1,46 @@
+# Max Sum Contiguous Subarray with Subset
+Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+
+For example:
+Given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-1,2,1] has the largest sum = 6.
+
+CPP Complete Code:
+
+#include <iostream>
+#include<vector>
+using namespace std;
+
+int maxSubArray(const vector<int> &A) {
+    int n=A.size();
+    int maximum=0, temp_max=0;
+    int start=0, size=0, g_s=0, g_l =0;
+
+    for(int i=0;i<n;i++){
+        if(A[i]>temp_max+A[i]) {
+            temp_max=A[i];
+            start = i;
+        } else {
+            temp_max+=A[i];
+            size++;
+        }
+      
+        if(maximum < temp_max) {
+            maximum = temp_max;
+            g_s = start;
+            g_l = size;
+        }
+    }
+    cout<< maximum<<endl;
+    for(int j=g_s;j<=g_l;j++)
+    {
+        cout<<A[j]<<" ";
+    }
+    return maximum;
+}
+
+int main(){
+  //Pre-defined user Input as per problem statement
+	vector <int> V {-2,1,-3,4,-1,2,1,-5,4};
+	maxSubArray(V);
+	return 0;
+}

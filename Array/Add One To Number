@@ -37,3 +37,44 @@ vector<int> Solution::plusOne(vector<int> &Number) {
     }
     return result;
 }
+
+
+
+
+/*CPP code:
+#include <iostream>
+#include<vector>
+using namespace std;
+
+vector<int> plusOne(vector<int> &Number) {
+    int n=Number.size(),carry=0;
+    vector<int>result;
+    result.push_back((1+Number[n-1])%10);
+    carry=(1+Number[n-1])/10;
+    for(int i=n-2;i>=0;i--){
+        result.push_back((carry+Number[i])%10);
+        carry=(carry+Number[i])/10;
+    }
+    if(carry)
+     result.push_back(carry);
+    
+    int x=result.size();
+    for(int i=0;i<x/2;i++)
+     swap(result[i],result[x-i-1]);
+    while(result[0]==0){
+       result.erase(result.begin());
+    }
+    for (int z : result) 
+        cout << z << "";
+    return result;
+};
+
+int main(){
+	int input;
+  	vector<int> N;
+        cin >> input;
+    N.push_back(input);
+  plusOne(N);
+  return 0;
+}
+*/
